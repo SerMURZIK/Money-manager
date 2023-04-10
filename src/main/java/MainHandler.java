@@ -19,11 +19,14 @@ public class MainHandler {
         }
     }
 
-    public void parseFile() {
+    public CountMaxSum getCountMaxSum() {
+        return countMaxSum;
+    }
+
+    public void addProduct() {
         try (Reader reader = new FileReader(getterJson)) {
             JSONParser jsonParser = new JSONParser();
             JSONObject jo = (JSONObject) jsonParser.parse(reader);
-            countMaxSum.parseTsvFile();
             countMaxSum.addProduct((String) jo.get("title"), (long) jo.get("sum"));
         } catch (Exception e) {
             System.err.println("MainHandler err " + e.getMessage());
@@ -46,8 +49,8 @@ public class MainHandler {
     public String returnJsonAnswer() {
         writeJsonAnswer();
         String result = null;
-        try (BufferedReader tsvReader = new BufferedReader(new FileReader(answerJson))) {
-            result = tsvReader.readLine();
+        try (BufferedReader reader = new BufferedReader(new FileReader(answerJson))) {
+            result = reader.readLine();
         } catch (Exception e) {
             System.err.println(e.getMessage());
         }

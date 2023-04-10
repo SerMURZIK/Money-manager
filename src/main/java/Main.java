@@ -17,7 +17,8 @@ public class Main {
                 ) {
 
                     mainHandler.writeFile(in.readLine());
-                    mainHandler.parseFile();
+                    mainHandler.getCountMaxSum().parseTsvFile();
+                    mainHandler.addProduct();
                     System.out.println(mainHandler.returnJsonAnswer());
                 }
             }

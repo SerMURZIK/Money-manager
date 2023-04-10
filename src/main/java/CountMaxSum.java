@@ -31,6 +31,10 @@ public class CountMaxSum {
         }
     }
 
+    public Map<String, Integer> getMaxSum() {
+        return maxSum;
+    }
+
     public void addProduct(String title, long sum) {
         if (product.containsValue(title)) {
             for (Map.Entry<String, String> entry : product.entrySet()) {
